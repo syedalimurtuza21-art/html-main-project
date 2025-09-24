@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fit And Fab Hub</title>
+  <meta name="description" content="Fit And Fab Hub - Trendy Clothing & Premium Accessories. Formal. Reliable. Affordable. Clothing, Watches, Shoes, Belts & more." />
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Your custom CSS -->
+  <link rel="stylesheet" href="1style.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Fit And Fab Hub</a>
+
+      <form class="d-flex ms-3 me-auto w-50" onsubmit="event.preventDefault(); searchProducts();">
+        <input id="searchInput" class="form-control me-2" type="search" placeholder="Search for products, e.g. watches, belts" aria-label="Search">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+      </form>
+
+      <div class="d-flex align-items-center">
+        <a href="reviews.html" class="btn btn-link me-3">Reviews</a>
+
+        <button class="btn btn-outline-secondary position-relative me-2" id="cartBtn" data-bs-toggle="modal" data-bs-target="#cartModal">
+          Cart
+          <span id="cartCount" class="badge bg-danger position-absolute top-0 start-100 translate-middle">0</span>
+        </button>
+
+        <a class="btn btn-primary" href="#contact">Enquiry</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero bg-light py-5">
+    <div class="container text-center">
+      <h1 class="display-6 fw-bold">Fit And Fab Hub — Trendy Clothing & Premium Accessories</h1>
+      <p class="lead mb-0">Formal. Reliable. Affordable. — Clothing, Watches, Shoes, Belts & more</p>
+    </div>
+  </header>
+
+  <!-- COMPANY INFO BAR -->
+  <section class="container py-3 border-bottom">
+    <div class="row text-center text-md-start">
+      <div class="col-md-4">
+        <h6 class="mb-0">Company</h6>
+        <small>Fit And Fab Hub Pvt. Ltd.</small>
+      </div>
+      <div class="col-md-4">
+        <h6 class="mb-0">GST / CIN</h6>
+        <small>IN - 09XXXXXXXXX</small>
+      </div>
+      <div class="col-md-4">
+        <h6 class="mb-0">Owner</h6>
+        <small>Syed Ali Mutuza Mujthedi</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="container py-4">
+    <div class="d-flex gap-2 flex-wrap justify-content-center">
+      <button class="btn btn-outline-secondary category-btn" onclick="filterCategory('all')">All</button>
+      <button class="btn btn-outline-secondary category-btn" onclick="filterCategory('Men')">Men</button>
+      <button class="btn btn-outline-secondary category-btn" onclick="filterCategory('Women')">Women</button>
+      <button class="btn btn-outline-secondary category-btn" onclick="filterCategory('Watches')">Watches</button>
+      <button class="btn btn-outline-secondary category-btn" onclick="filterCategory('Belts')">Belts</button>
+      <button class="btn btn-outline-secondary category-btn" onclick="filterCategory('Shoes')">Shoes</button>
+      <button class="btn btn-outline-secondary category-btn" onclick="filterCategory('Kids')">Kids</button>
+      <button class="btn btn-outline-secondary category-btn" onclick="filterCategory('Accessories')">Accessories</button>
+    </div>
+  </section>
+
+  <!-- FEATURED / PRODUCTS GRID -->
+  <main class="container my-4">
+    <h2 class="mb-3">Featured Collection</h2>
+
+    <div class="row" id="productGrid">
+      <!-- Product cards (placeholders) - repeat as needed -->
+      <!-- IMPORTANT: Replace src with images/your-image.jpg in VS Code -->
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Watches">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Classic Lether Watch1.jpg" alt="Classic Watch" class="card-img-top">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Classic Leather Watch</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-WATCH-101</p>
+            <p class="card-text fw-bold mb-2">₹1,999</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Classic Leather Watch',1999)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Classic Leather Watch',1999)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Watches">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Classic Lether Watch2.jpg" alt="Classic Watch" class="card-img-top">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Classic Leather Watch</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-WATCH-101</p>
+            <p class="card-text fw-bold mb-2">₹1,999</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Classic Leather Watch',1999)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Classic Leather Watch',1999)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Watches">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Classic Lether Watch3.jpg" alt="Classic Watch" class="card-img-top">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Classic Leather Watch</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-WATCH-101</p>
+            <p class="card-text fw-bold mb-2">₹1,999</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Classic Leather Watch',1999)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Classic Leather Watch',1999)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Watches">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Classic Lether Watch4.jpg" alt="Classic Watch" class="card-img-top">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Classic Leather Watch</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-WATCH-101</p>
+            <p class="card-text fw-bold mb-2">₹1,999</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Classic Leather Watch',1999)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Classic Leather Watch',1999)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Watches">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Classic Lether Watch5.jpg" alt="Classic Watch" class="card-img-top">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Classic Leather Watch</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-WATCH-101</p>
+            <p class="card-text fw-bold mb-2">₹1,999</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Classic Leather Watch',1999)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Classic Leather Watch',1999)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Belts">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="shopping (6).webp" alt="Leather Belt" class="card-img-top">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Genuine Leather Belt</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-BELT-205</p>
+            <p class="card-text fw-bold mb-2">₹799</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Genuine Leather Belt',799)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Genuine Leather Belt',799)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Belts">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Men Belts2.jpg" alt="Leather Belt" class="card-img-top">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Genuine Leather Belt</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-BELT-205</p>
+            <p class="card-text fw-bold mb-2">₹799</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Genuine Leather Belt',799)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Genuine Leather Belt',799)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div><div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Belts">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Men Belts3.jpg" alt="Leather Belt" class="card-img-top">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Genuine Leather Belt</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-BELT-205</p>
+            <p class="card-text fw-bold mb-2">₹799</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Genuine Leather Belt',799)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Genuine Leather Belt',799)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div><div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Belts">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Men Belts4.jpg" alt="Leather Belt" class="card-img-top">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Genuine Leather Belt</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-BELT-205</p>
+            <p class="card-text fw-bold mb-2">₹799</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Genuine Leather Belt',799)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Genuine Leather Belt',799)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div><div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Belts">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Men Belts5.jpg" alt="Leather Belt" class="card-img-top">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Genuine Leather Belt</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-BELT-205</p>
+            <p class="card-text fw-bold mb-2">₹799</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Genuine Leather Belt',799)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Genuine Leather Belt',799)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Men">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Casual Shirts1.jpg" alt="Casual Shirt" class="card-img-top">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Casual Men's Shirt</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-SHIRT-330</p>
+            <p class="card-text fw-bold mb-2">₹1,199</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Casual Men&#39;s Shirt',1199)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Casual Men&#39;s Shirt',1199)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+       <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Men">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Casual Shirts2.jpg" alt="Casual Shirt" class="card-img-top">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Casual Men's Shirt</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-SHIRT-330</p>
+            <p class="card-text fw-bold mb-2">₹1,199</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Casual Men&#39;s Shirt',1199)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Casual Men&#39;s Shirt',1199)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+       <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Men">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Casual Shirts3.jpg" alt="Casual Shirt" class="card-img-top">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Casual Men's Shirt</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-SHIRT-330</p>
+            <p class="card-text fw-bold mb-2">₹1,199</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Casual Men&#39;s Shirt',1199)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Casual Men&#39;s Shirt',1199)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+       <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Men">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Casual Shirts4.jpg" alt="Casual Shirt" class="card-img-top">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Casual Men's Shirt</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-SHIRT-330</p>
+            <p class="card-text fw-bold mb-2">₹1,199</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Casual Men&#39;s Shirt',1199)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Casual Men&#39;s Shirt',1199)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+       <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Men">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Casual Shirts5.jpg" alt="Casual Shirt" class="card-img-top">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Casual Men's Shirt</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-SHIRT-330</p>
+            <p class="card-text fw-bold mb-2">₹1,199</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Casual Men&#39;s Shirt',1199)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Casual Men&#39;s Shirt',1199)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Shoes">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="shopping (8).webp" alt="Sports Shoes" class="card-img-top">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Men's Sports Shoes</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-SHOE-410</p>
+            <p class="card-text fw-bold mb-2">₹2,499</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Men&#39;s Sports Shoes',2499)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Men\'s Sports Shoes',2499)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Shoes">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Shoes for sale1.jpg" alt="Sports Shoes" class="card-img-top">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Men's Sports Shoes</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-SHOE-410</p>
+            <p class="card-text fw-bold mb-2">₹2,499</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Men&#39;s Sports Shoes',2499)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Men\'s Sports Shoes',2499)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Shoes">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Shoes for sale2.jpg" alt="Sports Shoes" class="card-img-top">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Men's Sports Shoes</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-SHOE-410</p>
+            <p class="card-text fw-bold mb-2">₹2,499</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Men&#39;s Sports Shoes',2499)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Men\'s Sports Shoes',2499)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Shoes">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Shoes for sale3.jpg" alt="Sports Shoes" class="card-img-top">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Men's Sports Shoes</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-SHOE-410</p>
+            <p class="card-text fw-bold mb-2">₹2,499</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Men&#39;s Sports Shoes',2499)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Men\'s Sports Shoes',2499)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Shoes">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Shoes for sale4.jpg" alt="Sports Shoes" class="card-img-top">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Men's Sports Shoes</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-SHOE-410</p>
+            <p class="card-text fw-bold mb-2">₹2,499</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Men&#39;s Sports Shoes',2499)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Men\'s Sports Shoes',2499)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+       <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Women">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Women Casual Shirts1.jpg" alt="Women Casual Shirt" class="card-img-top">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Women Casual Shirt</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-SHIRT-101</p>
+            <p class="card-text fw-bold mb-2">₹2,599</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Women Casual Shirt',2599)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Women Casual Shirt',2599)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Women">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Women Casual Shirts2.jpg" alt="Women Casual Shirt" class="card-img-top">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Women Casual Shirt</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-SHIRT-101</p>
+            <p class="card-text fw-bold mb-2">₹2,599</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Women Casual Shirt',2599)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Women Casual Shirt',2599)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Women">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Women Casual Shirts3.jpg" alt="Women Casual Shirt" class="card-img-top">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Women Casual Shirt</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-SHIRT-101</p>
+            <p class="card-text fw-bold mb-2">₹2,599</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Women Casual Shirt',2599)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Women Casual Shirt',2599)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Women">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Women Casual Shirts4.jpg" alt="Women Casual Shirt" class="card-img-top">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Women Casual Shirt</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-SHIRT-101</p>
+            <p class="card-text fw-bold mb-2">₹2,599</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Women Casual Shirt',2599)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Women Casual Shirt',2599)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Women">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Women Casual Shirts5.jpg" alt="Women Casual Shirt" class="card-img-top">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Women Casual Shirt</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-SHIRT-101</p>
+            <p class="card-text fw-bold mb-2">₹2,599</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Women Casual Shirt',2599)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Women Casual Shirt',2599)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Kids">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Kids Shorts And Tshirts1.jpg" alt="Kids Shorts And Tshirts" class="card-img-top">
+        
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Kids Shorts And Tshirts</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-SHIRT-101</p>
+            <p class="card-text fw-bold mb-2">₹1,599</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Kids Shorts And Tshirts',1599)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Kids Shorts And Tshirts',1599)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+       </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Kids">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Kids Shorts And Tshirts2.jpg" alt="Kids Shorts And Tshirts" class="card-img-top">
+          
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Kids Shorts And Tshirts</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-SHIRT-101</p>
+            <p class="card-text fw-bold mb-2">₹1,599</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Kids Shorts And Tshirts',1599)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Kids Shorts And Tshirts',1599)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+       </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Kids">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Kids Shorts And Tshirts3.jpg" alt="Kids Shorts And Tshirts" class="card-img-top">
+          
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Kids Shorts And Tshirts</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-SHIRT-101</p>
+            <p class="card-text fw-bold mb-2">₹1,599</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Kids Shorts And Tshirts',1599)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Kids Shorts And Tshirts',1599)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+       </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Kids">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Kids Shorts And Tshirts4.jpg" alt="Kids Shorts And Tshirts" class="card-img-top">
+          
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Kids Shorts And Tshirts</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-SHIRT-101</p>
+            <p class="card-text fw-bold mb-2">₹1,599</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Kids Shorts And Tshirts',1599)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Kids Shorts And Tshirts',1599)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+       </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Kids">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Kids Shorts And Tshirts5.jpg" alt="Kids Shorts And Tshirts" class="card-img-top">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Kids Shorts And Tshirts</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-SHIRT-101</p>
+            <p class="card-text fw-bold mb-2">₹1,599</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Kids Shorts And Tshirts',1599)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Kids Shorts And Tshirts',1599)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+       </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Accessories">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Men Wallets1.jpg" alt="Men Wallets" class="card-img-top">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Men Wallets</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-WALLET-101</p>
+            <p class="card-text fw-bold mb-2">₹1,999</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Men Wallets',1999)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Men Wallets',1999)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+       </div>
+       <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Accessories">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Men Wallets2.jpg" alt="Men Wallets" class="card-img-top">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Men Wallets</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-WALLET-101</p>
+            <p class="card-text fw-bold mb-2">₹1,999</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Men Wallets',1999)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Men Wallets',1999)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+       </div>
+       <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Accessories">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Men Wallets3.jpg" alt="Men Wallets" class="card-img-top">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Men Wallets</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-WALLET-101</p>
+            <p class="card-text fw-bold mb-2">₹1,999</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Men Wallets',1999)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Men Wallets',1999)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+       </div>
+       <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Accessories">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Men Wallets4.jpg" alt="Men Wallets" class="card-img-top">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Men Wallets</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-WALLET-101</p>
+            <p class="card-text fw-bold mb-2">₹1,999</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Men Wallets',1999)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Men Wallets',1999)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+       </div>
+       <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Accessories">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Men Wallets5.jpg" alt="Men Wallets" class="card-img-top">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Men Wallets</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-WALLET-101</p>
+            <p class="card-text fw-bold mb-2">₹1,999</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Men Wallets',1999)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Men Wallets',1999)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+       </div>
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Accessories">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Men Sunglasses1.jpg" alt="Men Sunglasses" class="card-img-top">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Men Sunglasses</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-SUNGLASSES-101</p>
+            <p class="card-text fw-bold mb-2">₹1,999</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Men Sunglasses',1999)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Men Sunglasses',1999)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+       </div>
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Accessories">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Men Sunglasses2.jpg" alt="Men Sunglasses" class="card-img-top">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Men Sunglasses</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-SUNGLASSES-101</p>
+            <p class="card-text fw-bold mb-2">₹1,999</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Men Sunglasses',1999)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Men Sunglasses',1999)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+       </div> <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Accessories">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Men Sunglasses3.jpg" alt="Men Sunglasses" class="card-img-top">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Men Sunglasses</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-SUNGLASSES-101</p>
+            <p class="card-text fw-bold mb-2">₹1,999</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Men Sunglasses',1999)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Men Sunglasses',1999)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+       </div> <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Accessories">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Men Sunglasses4.jpg" alt="Men Sunglasses" class="card-img-top">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Men Sunglasses</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-SUNGLASSES-101</p>
+            <p class="card-text fw-bold mb-2">₹1,999</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Men Sunglasses',1999)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Men Sunglasses',1999)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+       </div> <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card" data-category="Accessories">
+        <div class="card h-100 shadow-sm">
+          <div class="img-placeholder">
+            <img src="Men Sunglasses5.jpg" alt="Men Sunglasses" class="card-img-top">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Men Sunglasses</h5>
+            <p class="card-text text-muted small mb-1">Model: SK-SUNGLASSES-101</p>
+            <p class="card-text fw-bold mb-2">₹1,999</p>
+            <div class="mt-auto d-grid gap-2">
+              <button class="btn btn-outline-primary" onclick="addToCart('Men Sunglasses',1999)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow('Men Sunglasses',1999)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+       </div>
+      
+      <!-- Add more product cards below following the same pattern; leave image src points for you -->
+    </div>
+  </main>
+
+  <!-- MORE SECTIONS: Bestsellers / New Arrivals / Accessories (structure only) -->
+  <section class="container my-5">
+    <h3>Bestsellers</h3>
+    <p class="text-muted small">Top-selling items updated weekly.</p>
+    <div class="row" id="bestsellersRow">
+      <!-- Leave space for more cards -->
+    </div>
+  </section>
+
+  <section class="container my-5">
+    <h3>Accessories</h3>
+    <p class="text-muted small">Belts, wallets, caps and more.</p>
+    <div class="row" id="accessoriesRow">
+      <!-- Leave space for more cards -->
+    </div>
+  </section>
+
+  <!-- CONTACT / ENQUIRY -->
+  <section id="contact" class="bg-dark text-white py-5">
+    <div class="container">
+      <h2>Enquiry / Contact</h2>
+      <p class="small">For product enquiries, business, or support, email us directly or use the form below.</p>
+
+      <form action="mailto:syedalimutuza21@gmail.com" method="post" enctype="text/plain" class="row g-3">
+        <div class="col-md-4">
+          <label class="form-label">Name</label>
+          <input name="Name" class="form-control" required>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Email</label>
+          <input name="Email" type="email" class="form-control" required>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Phone (optional)</label>
+          <input name="Phone" type="tel" class="form-control">
+        </div>
+        <div class="col-12">
+          <label class="form-label">Message</label>
+          <textarea name="Message" class="form-control" rows="4" required></textarea>
+        </div>
+        <div class="col-12">
+          <button class="btn btn-light" type="submit">Send Enquiry</button>
+          <small class="text-muted ms-3">Or email: <a class="text-white" href="mailto:syedalimutuza21@gmail.com">syedalimutuza21@gmail.com</a></small>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-secondary text-white py-4 mt-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h6>About</h6>
+          <p class="small mb-0">StyleKart Commerce Pvt. Ltd. - Reliable e-commerce for clothing & accessories.</p>
+        </div>
+        <div class="col-md-4">
+          <h6>Policies</h6>
+          <ul class="list-unstyled small">
+            <li>Return Policy</li>
+            <li>Shipping Policy</li>
+            <li>Privacy</li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h6>Contact</h6>
+          <p class="small mb-0">Email: <a class="text-white" href="mailto:syedalimutuza21@gmail.com">syedalimutuza21@gmail.com</a></p>
+        </div>
+      </div>
+
+      <div class="text-center mt-3 small">
+        &copy; 2025 StyleKart Commerce Pvt. Ltd. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART MODAL -->
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cartModalLabel">Your Cart</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="cartItems" class="list-group"></div>
+          <div id="cartEmpty" class="text-center text-muted py-4">Your cart is empty.</div>
+        </div>
+        <div class="modal-footer">
+          <div class="me-auto">
+            <strong>Total: ₹<span id="cartTotal">0</span></strong>
+          </div>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue shopping</button>
+          <button type="button" class="btn btn-primary" onclick="checkout()">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Simple cart and site script -->
+  <script>
+    // Simple in-memory cart (suitable for demo / practical)
+    const cart = [];
+    const cartCountEl = document.getElementById('cartCount');
+    const cartItemsEl = document.getElementById('cartItems');
+    const cartEmptyEl = document.getElementById('cartEmpty');
+    const cartTotalEl = document.getElementById('cartTotal');
+
+    function addToCart(name, price) {
+      const existing = cart.find(i => i.name === name);
+      if (existing) { existing.qty += 1; existing.lineTotal = existing.qty * existing.price; }
+      else cart.push({ name, price, qty: 1, lineTotal: price });
+
+      updateCartUI();
+      // small toast/feedback
+      alert(name + " added to cart.");
+    }
+
+    function updateCartUI() {
+      const total = cart.reduce((s, i) => s + i.lineTotal, 0);
+      cartTotalEl.textContent = total;
+      cartCountEl.textContent = cart.reduce((s, i) => s + i.qty, 0);
+
+      if (cart.length === 0) {
+        cartEmptyEl.style.display = 'block';
+        cartItemsEl.innerHTML = '';
+      } else {
+        cartEmptyEl.style.display = 'none';
+        cartItemsEl.innerHTML = '';
+        cart.forEach((item, idx) => {
+          const node = document.createElement('div');
+          node.className = 'list-group-item d-flex justify-content-between align-items-center';
+          node.innerHTML = `
+            <div>
+              <div class="fw-bold">${escapeHtml(item.name)}</div>
+              <small class="text-muted">₹${item.price} x ${item.qty}</small>
+            </div>
+            <div>
+              <button class="btn btn-sm btn-outline-secondary me-2" onclick="changeQty(${idx}, -1)">-</button>
+              <button class="btn btn-sm btn-outline-secondary me-2" onclick="changeQty(${idx}, 1)">+</button>
+              <button class="btn btn-sm btn-danger" onclick="removeItem(${idx})">Remove</button>
+            </div>
+          `;
+          cartItemsEl.appendChild(node);
+        });
+      }
+    }
+
+    function changeQty(index, delta) {
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) return removeItem(index);
+      cart[index].lineTotal = cart[index].qty * cart[index].price;
+      updateCartUI();
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      updateCartUI();
+    }
+
+    function checkout() {
+      if (cart.length === 0) { alert('Your cart is empty.'); return; }
+      // Build order summary for mailto
+      let summary = 'Order from StyleKart Commerce%0D%0A%0D%0A';
+      cart.forEach(i => {
+        summary += `${encodeURIComponent(i.name)} - Qty: ${i.qty} - ₹${i.lineTotal}%0D%0A`;
+      });
+      const total = cart.reduce((s, i) => s + i.lineTotal, 0);
+      summary += `%0D%0ATotal: ₹${total}%0D%0A%0D%0APlease contact me to proceed with payment and shipping.`;
+
+      // Open mail client to place order (mailto)
+      const mail = 'syedalimutuza21@gmail.com';
+      const subject = encodeURIComponent('Order from StyleKart Commerce');
+      window.location.href = `mailto:${mail}?subject=${subject}&body=${summary}`;
+    }
+
+    // Buy now opens a mailto prepared for one item
+    function buyNow(name, price) {
+      const mail = 'syedalimutuza21@gmail.com';
+      const subject = encodeURIComponent('Buy Now Order from StyleKart Commerce');
+      const body = encodeURIComponent(`I want to buy:\n\nProduct: ${name}\nPrice: ₹${price}\n\nPlease contact me to complete payment and delivery.\n\nThank you,\n[Your Name]`);
+      window.location.href = `mailto:${mail}?subject=${subject}&body=${body}`;
+    }
+
+    function filterCategory(cat) {
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(c => {
+        if (cat === 'all' || c.dataset.category === cat) c.style.display = '';
+        else c.style.display = 'none';
+      });
+    }
+
+    function searchProducts() {
+      const q = document.getElementById('searchInput').value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(c => {
+        const title = c.querySelector('.card-title').textContent.toLowerCase();
+        if (!q || title.includes(q)) c.style.display = '';
+        else c.style.display = 'none';
+      });
+    }
+
+    // Utility: escape HTML for item names
+    function escapeHtml(text) {
+      return text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+    }
+
+    // Initialize
+    updateCartUI();
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>StyleKart — Reviews & Content</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar navbar-light bg-white border-bottom">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">StyleKart Commerce</a>
+      <div>
+        <a class="btn btn-outline-secondary" href="index.html">Home</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-5">
+    <h1>Customer Reviews & External Ratings</h1>
+    <p class="lead">We value honest feedback. Below are some curated review resources and external ratings pages.</p>
+
+    <div class="list-group my-4">
+      <a class="list-group-item list-group-item-action" target="_blank" href="https://www.trustpilot.com/">
+        Trustpilot — Read independent customer reviews (external)
+      </a>
+      <a class="list-group-item list-group-item-action" target="_blank" href="https://www.sitejabber.com/">
+        Sitejabber — Reviews & ratings (external)
+      </a>
+      <a class="list-group-item list-group-item-action" target="_blank" href="https://www.google.com/search?q=StyleKart+reviews">
+        Google Search (external) — Search for "StyleKart reviews"
+      </a>
+    </div>
+
+    <h3 class="mt-4">Submit a Review</h3>
+    <p class="small text-muted">You can link your customers to the external review site of your choice.</p>
+
+    <form action="mailto:syedalimutuza21@gmail.com" method="post" enctype="text/plain" class="row g-3">
+      <div class="col-md-4">
+        <label class="form-label">Name</label>
+        <input name="Name" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Email</label>
+        <input name="Email" type="email" class="form-control">
+      </div>
+      <div class="col-12">
+        <label class="form-label">Your Review</label>
+        <textarea name="Review" class="form-control" rows="4"></textarea>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary" type="submit">Submit Review</button>
+      </div>
+    </form>
+  </main>
+
+  <footer class="bg-secondary text-white text-center py-3">
+    &copy; 2025 Fit And Fab Hub Pvt. Ltd.
+  </footer>
+</body>
+</html>
